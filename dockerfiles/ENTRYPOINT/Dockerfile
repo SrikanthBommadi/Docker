@@ -1,3 +1,6 @@
 FROM almalinux:9
-##CMD [ "ping","google.com" ]
-ENTRYPOINT [ "ping", "facebook.com" ]
+CMD [ "facebook.com" ]
+ENTRYPOINT [ "ping" ]
+###CMD [ "ping","google.com" ]
+###ENTRYPOINT [ "ping", "facebook.com" ]
+##we cannot override with override
