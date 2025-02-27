@@ -9,8 +9,26 @@ resource "aws_instance" "docker" {
             Name= local.resource_name
         }
     )
-  
+
+
+ provisioner "remote-exec" {
+    inline = [
+      "sudo dnf -y install dnf-plugins-core",
+      "sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo",
+      "sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin",
+      "sudo systemctl enable --now docker",
+      "sudo systemctl start docker",
+      "sudo usermod -aG docker ec2-user"
+    ]
+  }
+  connection {
+    type        = "ssh"
+    user        = "ec2-user"
+    password    = "DevOps321"
+    host        = self.public_ip
+  }
 }
+
 
 resource "aws_security_group" "docker" {
     name = "docker"
