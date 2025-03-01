@@ -5,9 +5,10 @@ COPY  *.js .
 RUN npm install
 ENV DB_HOST="mysql"
 CMD ["node", "index.js"]   
+ENTRYPOINT [ "sleep 100" ]
 
 
-#FROM node:20
+# FROM node:20
 # FROM node:20.18.3-alpine3.21
 # RUN addgroup -S expense && adduser -S expense -G expense
 # RUN mkdir /opt/backend
