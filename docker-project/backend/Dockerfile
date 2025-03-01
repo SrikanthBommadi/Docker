@@ -4,8 +4,7 @@ COPY package.json .
 COPY  *.js .
 RUN npm install
 ENV DB_HOST="mysql"
-CMD ["node", "index.js"]   
-ENTRYPOINT [ "sleep 100" ]
+CMD ["node", "index.js"]
 
 
 # FROM node:20
