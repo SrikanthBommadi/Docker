@@ -10,6 +10,10 @@ resource "aws_instance" "docker" {
         }
     )
 
+root_block_device {
+    volume_size = 50  # Set root volume size to 50GB
+    volume_type = "gp3"  # Use gp3 for better performance (optional)
+  }
 
  provisioner "remote-exec" {
     inline = [
