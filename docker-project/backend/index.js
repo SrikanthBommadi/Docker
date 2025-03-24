@@ -18,7 +18,7 @@ app.use(cors());
 
 //Health Checking
 app.get('/health',(req,res)=>{
-    res.json("This is the health check for green-2.0.0");
+    res.json("This is the health check for blue-3.0.0");
 });
 
 // ADD TRANSACTION
